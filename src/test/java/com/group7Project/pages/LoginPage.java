@@ -1,5 +1,6 @@
 package com.group7Project.pages;
 
+import com.group7Project.utilities.BrowserUtils;
 import com.group7Project.utilities.ConfigurationReader;
 import com.group7Project.utilities.Driver;
 import org.openqa.selenium.WebElement;
@@ -13,39 +14,21 @@ public class LoginPage {
         PageFactory.initElements(Driver.get(),this);
     }
 
-    /*//one of them should be true
-    @FindAll({
-            @FindBy(id = "prependedInput"),
-            @FindBy(name = "_username")
-    })*/
     //both should be true
-    @FindBys ({
-        @FindBy(id = "prependedInput"),
-        @FindBy(name = "_username")
-    })
+    @FindBy (id = "login")
     public WebElement usernameInput;
 
-    @FindBy(id = "prependedInput2")
+    @FindBy(id = "password")
     public WebElement passwordInput;
 
-    @FindBy(id = "_submit")
+    @FindBy(css = "[type='submit']")
     public WebElement loginBtn;
 
     public void login(String username, String password){
+        BrowserUtils.waitForPageToLoad(10);
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         loginBtn.click();
     }
-
-    public void loginAsStoreManager(){
-
-        String username = ConfigurationReader.get("storemanager_username");
-        String password = ConfigurationReader.get("storemanager_password");
-
-        usernameInput.sendKeys(username);
-        passwordInput.sendKeys(password);
-        loginBtn.click();
-    }
-
 
 }
