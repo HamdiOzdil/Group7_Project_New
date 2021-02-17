@@ -1,3 +1,4 @@
+@negativeLogin
 Feature: Negative login functionality
   Scenario: Users should not be able to login with wrong credentials
     Given user is on login page

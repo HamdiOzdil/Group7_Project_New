@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports"},
         features = "src/test/resources/features",
         glue = "com/group7Project/step_definitions",
-        dryRun = false,
-        tags = "@login"
+        dryRun = true,
+        tags = "@negativeLogin"
 )
 public class CukesRunner {
 }
