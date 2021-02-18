@@ -6,17 +6,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DashboardPage  {
+public class DashboardPage extends BasePage {
 
-          public DashboardPage(){
+          public void Activities(){
             PageFactory.initElements(Driver.get(),this);
         }
 
         //both should be true
         @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
-        public WebElement activities;
+        public WebElement activitiesBTN;
 
-    public void activities(){
-        activities.click();
     }
-}
+
