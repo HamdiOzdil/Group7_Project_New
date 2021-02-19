@@ -41,5 +41,32 @@ public class NegativeLoginStepDefs {
 
         Assert.assertEquals(expectedAlert,actualAlert);
     }
+    @When("user input login with blank credentials")
+    public void user_input_login_with_blank_credentials() {
+        String wrongUsername = "";
+        String wrongPassword = "";
+
+        loginPage.login(wrongUsername,wrongPassword);
+    }
+
+    @Then("Please fill out this field should be seen")
+    public void please_fill_out_this_field_should_be_seen() {
+
+        String expectedAlert = "Please fill out this field.";
+
+        String actualAlert ="";
+        try
+        {
+            BrowserUtils.waitForVisibility(loginPage.blankMessage,5);
+            actualAlert = loginPage.blankMessage.getAttribute("validationMessage");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.print("NullPointerException caught");
+        }
+
+
+        Assert.assertEquals(expectedAlert,actualAlert);
+    }
 
 }

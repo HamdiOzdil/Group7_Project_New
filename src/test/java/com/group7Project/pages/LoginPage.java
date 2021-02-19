@@ -4,6 +4,8 @@ import com.group7Project.utilities.BrowserUtils;
 import com.group7Project.utilities.ConfigurationReader;
 import com.group7Project.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -28,7 +30,7 @@ public class LoginPage {
     @FindBy(xpath = "//p[@class='alert alert-danger']")
     public WebElement wrongLoginAlert;
 
-    @FindBy(xpath = "//label[text()='Email']")
+    @FindBy(css = "#login")
     public WebElement blankMessage;
 
     public void login(String username, String password){
@@ -43,6 +45,8 @@ public class LoginPage {
     }
 
     public void verifyBlankMessage(String expectedMessage){
+        BrowserUtils.waitFor(2);
+
         Assert.assertEquals(expectedMessage,blankMessage.getAttribute("validationMessage"));
     }
 
