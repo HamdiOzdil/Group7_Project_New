@@ -10,8 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class NegativeLoginStepDefs {
 
-    @FindBy(xpath = "//p[@class='alert alert-danger']")
-    public WebElement wrongLoginAlert;
+
 
     LoginPage loginPage = new LoginPage();
 
@@ -31,8 +30,8 @@ public class NegativeLoginStepDefs {
         String actualAlert ="";
         try
         {
-            BrowserUtils.waitForVisibility(wrongLoginAlert,5);
-            actualAlert = wrongLoginAlert.getText().trim();
+            BrowserUtils.waitForVisibility(loginPage.wrongLoginAlert,5);
+            actualAlert = loginPage.wrongLoginAlert.getText().trim();
         }
         catch(NullPointerException e)
         {
