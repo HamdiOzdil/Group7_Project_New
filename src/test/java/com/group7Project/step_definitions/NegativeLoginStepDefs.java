@@ -25,48 +25,19 @@ public class NegativeLoginStepDefs {
     @Then("Wrong login or password should be seen")
     public void wrong_login_password_should_be_seen() {
 
-        String expectedAlert = "Wrong login/password";
-
-        String actualAlert ="";
-        try
-        {
-            BrowserUtils.waitForVisibility(loginPage.wrongLoginAlert,5);
-            actualAlert = loginPage.wrongLoginAlert.getText().trim();
-        }
-        catch(NullPointerException e)
-        {
-            System.out.print("NullPointerException caught");
-        }
-
-
-        Assert.assertEquals(expectedAlert,actualAlert);
+        loginPage.verifyWrongMessage("Wrong login/password");
     }
     @When("user input login with blank credentials")
     public void user_input_login_with_blank_credentials() {
-        String wrongUsername = "";
-        String wrongPassword = "";
 
-        loginPage.login(wrongUsername,wrongPassword);
+        loginPage.login(ConfigurationReader.get("blankUsername"),
+                        ConfigurationReader.get("blankPassword"));
     }
 
     @Then("Please fill out this field should be seen")
     public void please_fill_out_this_field_should_be_seen() {
 
-        String expectedAlert = "Please fill out this field.";
-
-        String actualAlert ="";
-        try
-        {
-            BrowserUtils.waitForVisibility(loginPage.blankMessage,5);
-            actualAlert = loginPage.blankMessage.getAttribute("validationMessage");
-        }
-        catch(NullPointerException e)
-        {
-            System.out.print("NullPointerException caught");
-        }
-
-
-        Assert.assertEquals(expectedAlert,actualAlert);
+        loginPage.verifyBlankMessage("Please fill out this field.");
     }
 
 }

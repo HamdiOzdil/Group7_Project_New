@@ -41,13 +41,35 @@ public class LoginPage {
     }
 
     public void verifyWrongMessage(String expectedMessage){
-        Assert.assertEquals(expectedMessage,wrongLoginAlert.getText());
+        String actualAlert ="";
+        try
+        {
+            BrowserUtils.waitForVisibility(wrongLoginAlert,5);
+            actualAlert = wrongLoginAlert.getText().trim();
+        }
+        catch(NullPointerException e)
+        {
+            System.out.print("NullPointerException caught");
+        }
+
+
+        Assert.assertEquals(expectedMessage,actualAlert);
     }
 
     public void verifyBlankMessage(String expectedMessage){
-        BrowserUtils.waitFor(2);
+        String actualAlert = "";
+        try
+        {
+            BrowserUtils.waitForVisibility(blankMessage,5);
+            actualAlert = blankMessage.getAttribute("validationMessage");
+        }
+        catch(NullPointerException e)
+        {
+            System.out.print("NullPointerException caught");
+        }
 
-        Assert.assertEquals(expectedMessage,blankMessage.getAttribute("validationMessage"));
+
+        Assert.assertEquals(expectedMessage,actualAlert,"Please fill out this field.");
     }
 
 }
