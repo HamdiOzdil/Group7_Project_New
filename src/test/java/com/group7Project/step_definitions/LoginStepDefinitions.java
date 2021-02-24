@@ -14,14 +14,15 @@ public class LoginStepDefinitions {
 
     @Then("User should be able to see main page")
     public void user_should_be_able_to_see_main_page() {
-        String expectedTitle = "Odoo";
-        String actualTitle = Driver.get().getTitle();
-        Assert.assertEquals(expectedTitle,actualTitle);
+
+        loginPage.verifySuccessfulLogin();
+
+
     }
 
     @When("Logs with valid credentials {string} {string}")
     public void logs_with_valid_credentials(String Username, String Password) {
-        LoginPage loginPage = new LoginPage();
+
         loginPage.login(Username,Password);
     }
 
