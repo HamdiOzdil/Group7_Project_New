@@ -5,6 +5,7 @@ import com.group7Project.utilities.ConfigurationReader;
 import com.group7Project.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +31,10 @@ public class LoginPage {
     public WebElement wrongLoginAlert;
 
     @FindBy(css = "#login")
-    public WebElement blankMessage;
+    public WebElement blankEmail;
+
+    @FindBy(css = "#password")
+    public WebElement blankPassword;
 
     public void login(String username, String password){
         BrowserUtils.waitForPageToLoad(10);
@@ -54,27 +58,23 @@ public class LoginPage {
     }
 
     public void verifyBlankMessage(String expectedMessage){
-        String actualAlert = "";
-        try
-        {
-            BrowserUtils.waitForVisibility(blankMessage,5);
-            actualAlert = blankMessage.getAttribute("validationMessage");
-        }
-        catch(NullPointerException e)
-        {
-            System.out.print("NullPointerException caught");
-        }
-        System.out.println(actualAlert);
-        System.out.println(expectedMessage);
-        Assert.assertEquals(expectedMessage,actualAlert,"Please fill out this field.");
-
-
+        if(usernameInput.getSize()==null){
+            Assert.assertEquals(expectedMessage,blankEmail.getAttribute("validationMessage"));
+        }else if(passwordInput.getSize()==null){
+            Assert.assertEquals(expectedMessage,blankPassword.getAttribute("validationMessage")); }
     }
+
     public void verifySuccessfulLogin(){
         String expectedTitle = "Odoo";
         String actualTitle = Driver.get().getTitle();
         Assert.assertEquals(expectedTitle,actualTitle);
 
+    }
+
+
+    public void enterCredentials(String username,String password){
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
     }
 
 }
