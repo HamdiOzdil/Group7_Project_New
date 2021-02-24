@@ -10,7 +10,8 @@ import org.openqa.selenium.TakesScreenshot;
 
 import java.util.concurrent.TimeUnit;
 
-public class Hooks {
+public class
+Hooks {
 
     @Before
     public void setUp(){

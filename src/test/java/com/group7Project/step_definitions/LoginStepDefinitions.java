@@ -32,6 +32,15 @@ public class LoginStepDefinitions {
         String actualTitle = Driver.get().getTitle();
 
         Assert.assertEquals(expectedTitle,actualTitle);
+
+
     }
+
+    @When("Logs with valid credentials {string} {string}")
+    public void logs_with_valid_credentials(String Username, String Password) {
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(Username,Password);
+    }
+
 
 }

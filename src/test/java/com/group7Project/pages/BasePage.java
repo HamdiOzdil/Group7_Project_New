@@ -3,6 +3,7 @@ package com.group7Project.pages;
 
 import com.group7Project.utilities.BrowserUtils;
 import com.group7Project.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -33,6 +34,18 @@ public abstract class BasePage {
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
+
+
+    //ACTIVITIES
+    @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
+    public WebElement activities;
+
+    public void ActivitiesIsDisplayed(){
+        Assert.assertTrue(activities.isDisplayed());
+
+    }
+
+    //Modules Locators
 
 
     /**
