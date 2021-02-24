@@ -72,4 +72,9 @@ public class LoginPage {
         Assert.assertEquals(expectedMessage,actualAlert,"Please fill out this field.");
     }
 
+    public void enterCredentials(String username,String password){
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+    }
+
 }

@@ -6,7 +6,6 @@
       When Logs with valid posmanager credentials
       Then User should be able to see main page
 
-@wip
     Scenario Outline: Login with valid credentials
       Given User in the login page
       When Logs with valid credentials "<Username>" "<Password>"

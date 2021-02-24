@@ -40,4 +40,16 @@ public class NegativeLoginStepDefs {
         loginPage.verifyBlankMessage("Please fill out this field.");
     }
 
+    @When("user input login with wrong credentials {string} {string}")
+    public void user_input_login_with_wrong_credentials(String username, String password) {
+
+        loginPage.login(username,password);
+    }
+
+    @Then("user should see wrong {string}")
+    public void user_should_see_wrong(String message) {
+
+        loginPage.verifyWrongMessage(message);
+    }
+
 }
