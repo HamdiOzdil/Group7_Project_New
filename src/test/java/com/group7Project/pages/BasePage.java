@@ -3,6 +3,7 @@ package com.group7Project.pages;
 
 import com.group7Project.utilities.BrowserUtils;
 import com.group7Project.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -29,6 +30,9 @@ public abstract class BasePage {
 
     @FindBy(linkText = "My User")
     public WebElement myUser;
+
+    @FindBy(xpath = "//img[@class='img-circle oe_topbar_avatar']")
+    public WebElement avatar;
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
@@ -79,6 +83,10 @@ public abstract class BasePage {
         BrowserUtils.waitForClickablility(userName, 5).click();
         BrowserUtils.waitForClickablility(myUser, 5).click();
 
+    }
+    public void verifyAvatarDisplay(){
+        BrowserUtils.waitForVisibility(avatar,30);
+        Assert.assertTrue(avatar.isDisplayed());
     }
 
     /**
