@@ -17,7 +17,6 @@ public class LoginPage {
         PageFactory.initElements(Driver.get(),this);
     }
 
-    //both should be true
     @FindBy (id = "login")
     public WebElement usernameInput;
 
@@ -51,8 +50,6 @@ public class LoginPage {
         {
             System.out.print("NullPointerException caught");
         }
-
-
         Assert.assertEquals(expectedMessage,actualAlert);
     }
 
@@ -67,8 +64,8 @@ public class LoginPage {
         {
             System.out.print("NullPointerException caught");
         }
-
-
+        System.out.println(actualAlert);
+        System.out.println(expectedMessage);
         Assert.assertEquals(expectedMessage,actualAlert,"Please fill out this field.");
     }
 

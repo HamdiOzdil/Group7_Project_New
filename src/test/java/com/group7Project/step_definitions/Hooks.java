@@ -1,6 +1,7 @@
 package com.group7Project.step_definitions;
 
 
+import com.group7Project.utilities.ConfigurationReader;
 import com.group7Project.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -15,7 +16,9 @@ public class Hooks {
     @Before
     public void setUp(){
         System.out.println("\tthis is coming from BEFORE");
-        Driver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        Driver.get().manage().window().maximize();
+        Driver.get().manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+        Driver.get().get(ConfigurationReader.get("login_url"));
     }
 
     @After
