@@ -37,4 +37,14 @@ public abstract class BasePage {
         Assert.assertTrue(avatar.isDisplayed());
     }
 
+
+
+    //both should be true
+    @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
+    public WebElement activities;
+
+    public void verifyActivitiesIsDisplayed(){
+        Assert.assertTrue(activities.isDisplayed());
+    }
+
 }

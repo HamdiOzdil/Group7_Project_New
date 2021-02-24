@@ -8,13 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage extends BasePage {
 
-          public void Activities(){
-            PageFactory.initElements(Driver.get(),this);
-        }
 
-        //both should be true
-        @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
-        public WebElement activitiesBTN;
 
     }
 

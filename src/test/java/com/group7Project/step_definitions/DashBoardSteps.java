@@ -10,11 +10,5 @@ import org.openqa.selenium.support.FindBy;
 
 public class DashBoardSteps extends DashboardPage {
 
-    @Then("User should be able to see activities hover over")
-    public void user_should_be_able_to_see_activities_hover_over() {
 
-        Actions actions = new Actions(Driver.get());
-        actions.moveToElement(activitiesBTN).perform();
-
-    }
 }
