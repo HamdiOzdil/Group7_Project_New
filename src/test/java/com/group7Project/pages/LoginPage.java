@@ -30,7 +30,7 @@ public class LoginPage {
     @FindBy(xpath = "//p[@class='alert alert-danger']")
     public WebElement wrongLoginAlert;
 
-    @FindBy(css = "#login")
+    @FindBy(xpath = "//input[@required='required']")
     public WebElement blankMessage;
 
     public void login(String username, String password){
@@ -71,6 +71,7 @@ public class LoginPage {
 
         Assert.assertEquals(expectedMessage,actualAlert,"Please fill out this field.");
     }
+
 
     public void enterCredentials(String username,String password){
         usernameInput.sendKeys(username);

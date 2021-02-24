@@ -52,4 +52,14 @@ public class NegativeLoginStepDefs {
         loginPage.verifyWrongMessage(message);
     }
 
+    @When("user input login with blank credentials {string} {string}")
+    public void user_input_login_with_blank_credentials(String username, String password) {
+        loginPage.login(username,password);
+    }
+
+    @Then("user should see blank {string}")
+    public void user_should_see_blank(String message) {
+        loginPage.verifyBlankMessage(message);
+    }
+
 }
