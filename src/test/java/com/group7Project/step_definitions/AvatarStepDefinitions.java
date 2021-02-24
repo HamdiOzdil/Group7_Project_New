@@ -9,7 +9,6 @@ public class AvatarStepDefinitions {
 
     @Then("User should be able to see their avatars")
     public void user_should_be_able_to_see_their_avatars() {
-
         dashboard.verifyAvatarDisplay();
     }
 
