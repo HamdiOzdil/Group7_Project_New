@@ -67,6 +67,14 @@ public class LoginPage {
         System.out.println(actualAlert);
         System.out.println(expectedMessage);
         Assert.assertEquals(expectedMessage,actualAlert,"Please fill out this field.");
+
+
+    }
+    public void verifySuccessfulLogin(){
+        String expectedTitle = "Odoo";
+        String actualTitle = Driver.get().getTitle();
+        Assert.assertEquals(expectedTitle,actualTitle);
+
     }
 
 }
