@@ -1,15 +1,10 @@
 package com.group7Project.pages;
 
 import com.group7Project.utilities.BrowserUtils;
-import com.group7Project.utilities.ConfigurationReader;
 import com.group7Project.utilities.Driver;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
