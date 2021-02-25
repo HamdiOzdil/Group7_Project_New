@@ -11,7 +11,7 @@ Feature: Negative login functionality
 
   Scenario Outline: Users should not be able to login with blank credentials
     When user input login with blank credentials "<username>" "<password>"
-    Then user should see blank "<message>"
+    Then user should see blank "<message>" "<username>" "<password>"
     Examples:
       | username              | password   | message                     |
       |                       | posmanager | Please fill out this field. |
