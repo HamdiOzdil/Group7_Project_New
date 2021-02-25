@@ -15,24 +15,27 @@ import java.util.List;
 
 public class ModulesSteps {
 
-    ModulesPage modulesPage = new ModulesPage();
     DashboardPage dashboardPage = new DashboardPage();
     @Given("the user logged in as {string}")
     public void the_user_logged_in_as(String userType) {
 
-        Driver.get().get(ConfigurationReader.get("login_url")); // go to centrelli web site
-        //based on input enter that user information
         String username =null;
         String password =null;
-        if(userType.equals("posmanager")){
+        if(userType.equals("pos manager")){
             username = ConfigurationReader.get("posmanager_username");
             password = ConfigurationReader.get("posmanager_password");
         }else if(userType.equals("sales manager")){
-            username = ConfigurationReader.get("sales_manager_username");
-            password = ConfigurationReader.get("sales_manager_password");
-        }else if(userType.equals("store manager")){
-            username = ConfigurationReader.get("store_manager_username");
-            password = ConfigurationReader.get("store_manager_password");
+            username = ConfigurationReader.get("salesmanager_username");
+            password = ConfigurationReader.get("salesmanager_password");
+        }else if(userType.equals("expenses manager")){
+            username = ConfigurationReader.get("expensesmanager_username");
+            password = ConfigurationReader.get("expensesmanager_password");
+        }else if(userType.equals("inventory manager")){
+            username = ConfigurationReader.get("inventorymanager_username");
+            password = ConfigurationReader.get("inventorymanager_password");
+        }else if(userType.equals("manufacturing user")){
+            username = ConfigurationReader.get("manufacturinguser_username");
+            password = ConfigurationReader.get("manufacturinguser_password");
         }
         //send username and password and login
         new LoginPage().login(username,password);
@@ -44,6 +47,11 @@ public class ModulesSteps {
     @Then("User should see following options {string}")
     public void user_should_see_following_options(List <String> moduleOptions) {
 
+    }
+
+    @Then("the user should be able to see following modules")
+    public void the_user_should_be_able_to_see_following_modules(List<String> modules){
+        dashboardPage.verifyModuleNamesBasedOnUserTypes(modules);
     }
 
 
