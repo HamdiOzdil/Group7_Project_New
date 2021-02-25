@@ -23,9 +23,9 @@ public class NegativeLoginStepDefs {
         loginPage.login(username,password);
     }
 
-    @Then("user should see blank {string}")
-    public void user_should_see_blank(String message) {
-        loginPage.verifyBlankMessage(message);
+    @Then("user should see blank {string} {string} {string}")
+    public void user_should_see_blank(String message, String username, String password) {
+        loginPage.verifyBlankMessage(message, username, password);
     }
 
 }
