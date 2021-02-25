@@ -1,9 +1,5 @@
-
-@Modules
-Feature: Modules Names
-Agile Story: As a user I should be able to see all modules which I have right to access on the top menu
-Description: The purpose of this feature is to test if users can see all modules they are supposed to see
-
+Feature: Users should be able to see all modules which they have right to access on the top menu
+@wip
   Scenario Outline: Users should be able to see all modules which they have right to access with "<userType>"
     Given the user logged in as "<userType>"
     When the user should be able to see following modules
