@@ -38,6 +38,8 @@ public class LoginPage {
         loginBtn.click();
     }
 
+
+
     public void verifyWrongMessage(String expectedMessage){
         String actualAlert ="";
         try
@@ -57,6 +59,7 @@ public class LoginPage {
             Assert.assertEquals(expectedMessage,blankEmail.getAttribute("validationMessage")); }
         if(password.isBlank()){
             Assert.assertEquals(expectedMessage,blankPassword.getAttribute("validationMessage")); } }
+
 
     public void verifySuccessfulLogin(){
         String expectedTitle = "Odoo";

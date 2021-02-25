@@ -45,11 +45,7 @@ public class ModulesSteps {
 
 
     @Then("User should see following options {string}")
-
-
     public void user_should_see_following_options(List <String> modulesList) {
-
-
         dashboardPage.verifyModuleNamesRelatedToUsers(modulesList);
 
     }
