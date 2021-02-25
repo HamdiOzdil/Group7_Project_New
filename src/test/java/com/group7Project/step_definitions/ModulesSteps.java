@@ -1,5 +1,5 @@
 package com.group7Project.step_definitions;
-
+import com.group7Project.pages.DashboardPage;
 import com.group7Project.pages.LoginPage;
 import com.group7Project.pages.ModulesPage;
 import com.group7Project.utilities.BrowserUtils;
@@ -10,11 +10,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class ModulesSteps  {
 
- ModulesPage modulesPage = new ModulesPage();
+import java.util.List;
 
+public class ModulesSteps {
 
+    ModulesPage modulesPage = new ModulesPage();
+    DashboardPage dashboardPage = new DashboardPage();
     @Given("the user logged in as {string}")
     public void the_user_logged_in_as(String userType) {
 
@@ -39,22 +41,12 @@ public class ModulesSteps  {
 
 
 
+    @Then("User should see following options {string}")
+    public void user_should_see_following_options(List <String> moduleOptions) {
 
-
-    @When("the user navigates to {string}")
-    public void the_user_navigates_to(String module) {
-
-
-        modulesPage.navigateToModule(module);
-
-    }
-
-    @Then("the title contains {string}")
-    public void the_title_contains(String title) {
-        //String expected= ;
-        Assert.assertEquals(Driver.get().getTitle(),title);
     }
 
 
 
 }
+
