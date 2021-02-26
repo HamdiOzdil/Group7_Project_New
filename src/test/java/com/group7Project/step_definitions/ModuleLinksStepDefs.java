@@ -12,10 +12,9 @@ import org.junit.Assert;
 public class ModuleLinksStepDefs {
 
     ModulesPage modulesPage = new ModulesPage();
+
     @Given("Logs with {string}")
     public void logs_with(String userType) {
-
-
         Driver.get().get(ConfigurationReader.get("login_url")); // go to centrelli web site
         //based on input enter that user information
         String username =null;

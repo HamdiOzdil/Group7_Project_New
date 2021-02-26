@@ -38,8 +38,6 @@ public class LoginPage {
         loginBtn.click();
     }
 
-
-
     public void verifyWrongMessage(String expectedMessage){
         String actualAlert ="";
         try

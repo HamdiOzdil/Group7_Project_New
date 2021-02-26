@@ -110,32 +110,26 @@ public abstract class BasePage {
     @FindBy(xpath = "//a[contains(text(),'More')]")
     public WebElement moreButton;
 
+    @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
+    public WebElement activities;
 
     public void verifyModuleNamesRelatedToUsers(List<String> modulesList){
 
         BrowserUtils.waitForPageToLoad(5);
-        System.out.println("verifyModuleNamesRelatedToUsers");
-
         for (String each : ExpectedModuleList(modulesList)){
-            System.out.println("Before Assertion");
-            BrowserUtils.waitForPageToLoad(5);
+                BrowserUtils.waitForPageToLoad(5);
                 String moduleNameLocator = "//span[contains(text(),'" + each + "')]";
                 Assert.assertTrue(Driver.get().findElement(By.xpath(moduleNameLocator)).isDisplayed());
-                System.out.println("After Assertion");
         }
     }
     private List<String> ExpectedModuleList(List<String> modulesList) {
-    System.out.println("Before ExpectedModuleList");
                 List<String> expectedModuleList = new ArrayList<>();
                 for (String each : modulesList) {
                     if (!each.equals("-")) expectedModuleList.add(each);
                 }
-        System.out.println(" After ExpectedModuleList");
                 return expectedModuleList;
 
     }
-
-
 
     public void verifyConversationsIsDisplayed(){
         Assert.assertTrue(conversations.isDisplayed());
@@ -145,11 +139,6 @@ public abstract class BasePage {
         BrowserUtils.waitForVisibility(avatar,30);
         Assert.assertTrue(avatar.isDisplayed());
     }
-
-
-    //both should be true
-    @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
-    public WebElement activities;
 
     public void verifyActivitiesIsDisplayed(){
         Assert.assertTrue(activities.isDisplayed());

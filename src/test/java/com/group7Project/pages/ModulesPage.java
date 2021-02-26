@@ -12,13 +12,8 @@ public class ModulesPage {
     PageFactory.initElements(Driver.get(),this);
 }
 
-
-     //   @FindBy(xpath = "//span[contains(text(),'Discuss')]")
-  //  public WebElement modules ;
-
     public void navigateToModule(String module) {
-        // String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
-        String moduleLocator = "//span[contains(text(),'"+module+"')]";
+       String moduleLocator = "//span[contains(text(),'"+module+"')]";
 
         try {
             BrowserUtils.waitForPresenceOfElement(By.xpath(moduleLocator), 5);

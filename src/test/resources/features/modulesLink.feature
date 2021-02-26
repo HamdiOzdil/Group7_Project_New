@@ -1,7 +1,7 @@
 @links
-Feature: User should be able to login
+Feature: Should be able to see module links
 
-  Scenario Outline: Login with different accounts
+  Scenario Outline: Verify users ability to see module links
     Given Logs with "<userType>"
     When the user navigates to "<module>"
     Then the title contains "<title>"
