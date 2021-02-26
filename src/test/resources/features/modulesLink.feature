@@ -1,34 +1,35 @@
-Feature: Users should be able to see all modules which they have right to access on the top menu
-@wip
-  Scenario Outline: Users should be able to see all modules which they have right to access with "<userType>"
-    Given the user logged in as "<userType>"
-    When the user should be able to see following modules
-      | <Module1>  |
-      | <Module2>  |
-      | <Module3>  |
-      | <Module4>  |
-      | <Module5>  |
-      | <Module6>  |
-      | <Module7>  |
-      | <Module8>  |
-      | <Module9>  |
-      | <Module10> |
-      | <Module11> |
-      | <Module12> |
-      | <Module13> |
-      | <Module14> |
-      | <Module15> |
-      | <Module16> |
-      | <Module17> |
-      | <Module18> |
-      | <Module19> |
-      | <Module20> |
-      | <Module21> |
-      | <Module22> |
+@links
+Feature: User should be able to login
+
+  Scenario Outline: Login with different accounts
+    Given Logs with "<userType>"
+    When the user navigates to "<module>"
+    Then the title contains "<title>"
+
+
     Examples:
-      | userType           | Module1 | Module2  | Module3 | Module4  | Module5 | Module6       | Module7   | Module8       | Module9   | Module10    | Module11      | Module12   | Module13        | Module14 | Module15  | Module16  | Module17    | Module18    | Module19   | Module20    | Module21 | Module22   |
-      | pos manager        | Discuss | Calendar | Notes   | Contacts | CRM     | Sales         | Website   | Point of Sale | Purchases | Inventory   | Manufacturing | Repairs    | Project         | Events   | Surveys   | Employees | Attendances | Leaves      | Expenses   | Maintenance | Fleet    | Dashboards |
-      | sales manager      | Discuss | Calendar | Notes   | Contacts | CRM     | Sales         | Website   | Point of Sale | Purchases | Inventory   | Repairs       | Invoicing  | Email Marketing | Events   | Employees | Leaves    | Expenses    | Maintenance | Dashboards | -           | -        | -          |
-      | expenses manager   | Discuss | Calendar | Notes   | Contacts | Website | Events        | Employees | Leaves        | Expenses  | Lunch       | Maintenance   | Dashboards | -               | -        | -         | -         | -           | -           | -          | -           | -        | -          |
-      | inventory manager  | Discuss | Calendar | Notes   | Contacts | Website | Manufacturing | Employees | Leaves        | Expenses  | Maintenance | Dashboards    | -          | -               | -        | -         | -         | -           | -           | -          | -           | -        | -          |
-      | manufacturing user | Discuss | Calendar | Notes   | Contacts | Website | Events        | Employees | Leaves        | Expenses  | Maintenance | Dashboards    | -          | -               | -        | -         | -         | -           | -           | -          | -           | -        | -          |
+
+      | userType      | module          | title |
+      | posmanager    | Discuss         | Odoo  |
+      | posmanager    | Calendar        | Odoo  |
+      | posmanager    | Notes           | Odoo  |
+      | posmanager    | Contacts        | Odoo  |
+      | posmanager    | CRM             | Odoo  |
+      | posmanager    | Sales           | Odoo  |
+      | posmanager    | Website         | Odoo  |
+      | posmanager    | Point of Sale   | Odoo  |
+      | posmanager    | Purchases       | Odoo  |
+      | posmanager    | Inventory       | Odoo  |
+      | posmanager    | Manufacturing   | Odoo  |
+      | posmanager    | Repairs         | Odoo  |
+      | posmanager    | Project         | Odoo  |
+      | posmanager    | Events          | Odoo  |
+      | posmanager    | Surveys         | Odoo  |
+      | posmanager    | Employees       | Odoo  |
+      | posmanager    | Attendances     | Odoo  |
+      | posmanager    | Leaves          | Odoo  |
+      | posmanager    | Expenses        | Odoo  |
+      | posmanager    | Maintenance     | Odoo  |
+      | posmanager    | Fleet           | Odoo  |
+      | posmanager    | Dashboards      | Odoo  |
+

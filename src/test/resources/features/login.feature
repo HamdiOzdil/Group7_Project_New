@@ -1,6 +1,5 @@
 
 @login
-
 Feature: User should be able to login
   Scenario Outline: Login with valid credentials
     When Logs with valid credentials "<Username>" "<Password>"
