@@ -113,6 +113,17 @@ public abstract class BasePage {
     @FindBy(xpath = "//i[@class=\"fa fa-clock-o\"]")
     public WebElement activities;
 
+    @FindBy(xpath = "//a[text()='Preferences']")
+    public WebElement preferences;
+
+    @FindBy(xpath = "//span[@title='Edit']")
+    public WebElement imageControl;
+
+    @FindBy(xpath = "//span[text()='Save']")
+    public WebElement saveButton;
+
+
+
     public void verifyModuleNamesRelatedToUsers(List<String> modulesList){
 
         BrowserUtils.waitForPageToLoad(5);
