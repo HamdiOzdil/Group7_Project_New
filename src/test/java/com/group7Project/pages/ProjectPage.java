@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class ProjectPage {
@@ -17,38 +18,26 @@ public class ProjectPage {
         PageFactory.initElements(Driver.get(),this);
     }
 
-    @FindBy(xpath = "//input[@class='o_searchview_input']")
-    public WebElement searchBTN;
 
     @FindBy(xpath = "//div[@class='o_primary']/span[1]")
     public List<WebElement> projectNamesListOnTheDashboard;
 
+    @FindBy(xpath ="//span[@class='o_pager_limit']")
+    public WebElement limitElement;
 
-   /* public void searchForProject (String project){
+    public int numberOfProject= Integer.parseInt( limitElement.getAttribute("value"));
 
-        searchBTN.sendKeys(project);
-    }*/
+    public boolean verifyNumberOfProjects() {
+        BrowserUtils.waitForPageToLoad( 5 );
+        if (numberOfProject == projectNamesListOnTheDashboard.size()) {
+            return true;
 
-    public List<String> projectNamesListOnTheDashboard () {
-        BrowserUtils.waitForPageToLoad(5);
-        List<String> expectedProjectList = new ArrayList<>();
-        for (WebElement each : projectNamesListOnTheDashboard) {
-            System.out.print( expectedProjectList.add(each));
+        } else {
+            return false;
         }
-        return expectedProjectList;
 
-
-
-   /* public void verifyModuleNamesRelatedToUsers(List<String> projectList){
-
-        BrowserUtils.waitForPageToLoad(5);
-        for (String each : expectedProjectList(projectList)){
-            BrowserUtils.waitForPageToLoad(5);
-            String moduleNameLocator = "//span[contains(text(),'" + each + "')]";
-            Assert.assertTrue(Driver.get().findElement(By.xpath(moduleNameLocator)).isDisplayed());*/
-        }
     }
 
-
+}
 
 
