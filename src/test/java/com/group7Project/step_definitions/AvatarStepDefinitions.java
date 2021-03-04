@@ -14,7 +14,7 @@ import java.util.Locale;
 public class AvatarStepDefinitions {
 
    DashboardPage dashboard = new DashboardPage();
-   PreferencesPage changeAvatar = new PreferencesPage();
+   PreferencesPage preferencesPage = new PreferencesPage();
 
     @Then("User should be able to see their avatars")
     public void user_should_be_able_to_see_their_avatars() {
@@ -24,9 +24,7 @@ public class AvatarStepDefinitions {
 
     @When("{string} navigates to preferences page")
     public void navigates_to_preferences_page(String usertype) throws InterruptedException {
-     Assert.assertTrue(dashboard.username.getText(),usertype.toLowerCase(Locale.ROOT).contains(usertype));
-     dashboard.username.click();
-     dashboard.preferences.click();
+     preferencesPage.navigateToPreferences(usertype);
     }
 
     @When("Select new picture for avatar")
@@ -37,13 +35,9 @@ public class AvatarStepDefinitions {
 
      dashboard.imageControl.click();
      BrowserUtils.waitForVisibility(dashboard.imageControl,3);
+     preferencesPage.uploadFile(fullPath);
 
      dashboard.saveButton.click();
-
-
-
-
-
 
     }
 
