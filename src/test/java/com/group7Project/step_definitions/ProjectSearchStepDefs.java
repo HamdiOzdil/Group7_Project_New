@@ -19,7 +19,7 @@ public class ProjectSearchStepDefs {
 
     @When("the user should be able to see initial project list")
     public void the_user_should_be_able_to_see_initial_project_list() {
-    projectPage.projectNamesListOnTheDashboard();
+    projectPage.ListingTheProject();
     }
 
    /* @When("the user should be able to see search")
