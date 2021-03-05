@@ -14,30 +14,36 @@ import java.util.List;
 
 public class ProjectPage {
 
-    public ProjectPage(){
-        PageFactory.initElements(Driver.get(),this);
+    public ProjectPage() {
+        PageFactory.initElements(Driver.get(), this);
     }
 
+    @FindBy(xpath = "//input[@class='o_searchview_input']")
+    public WebElement searchBTN;
 
     @FindBy(xpath = "//div[@class='o_primary']/span[1]")
     public List<WebElement> projectNamesListOnTheDashboard;
 
-    @FindBy(xpath ="//span[@class='o_pager_limit']")
-    public WebElement limitElement;
 
-    public int numberOfProject= Integer.parseInt( limitElement.getAttribute("value"));
+   /* public void searchForProject (String project){
 
-    public boolean verifyNumberOfProjects() {
-        BrowserUtils.waitForPageToLoad( 5 );
-        if (numberOfProject == projectNamesListOnTheDashboard.size()) {
-            return true;
+        searchBTN.sendKeys(project);
+    }*/
 
-        } else {
-            return false;
+    public HashSet<String> ListingTheProject() {
+
+        BrowserUtils.waitForPageToLoad(5);
+        HashSet<String> expectedProjectList = new HashSet<>();
+
+        for (WebElement webElement : projectNamesListOnTheDashboard) {
+            expectedProjectList.add(webElement.getText());
         }
 
+        for (String s : expectedProjectList) {
+            System.out.println(s);
+        }
+
+        return expectedProjectList;
+
     }
-
 }
-
-
