@@ -4,6 +4,8 @@ import com.group7Project.pages.DashboardPage;
 import com.group7Project.pages.PreferencesPage;
 import io.cucumber.java.en.*;
 
+import java.io.IOException;
+
 public class AvatarStepDefinitions {
 
    DashboardPage dashboard = new DashboardPage();
@@ -21,19 +23,19 @@ public class AvatarStepDefinitions {
     }
 
     @Given("take the screenshot of {string} avatar")
-    public void take_the_screenshot_of_avatar(String string) {
-
+    public void take_the_screenshot_of_avatar(String avatar) throws IOException {
+     preferencesPage.takeScreenshotOfAvatar(avatar);
     }
 
     @When("change the avatar with new one {string}")
-    public void change_the_avatar_with_new_one(String string) {
-
+    public void change_the_avatar_with_new_one(String newImage) {
+     preferencesPage.changeTheAvatar(newImage);
     }
 
 
     @Then("verify the avatar has changed")
-    public void verify_the_avatar_has_changed() {
-
+    public void verify_the_avatar_has_changed() throws IOException {
+     preferencesPage.verifyTheAvatarHasChanged();
     }
 
 
