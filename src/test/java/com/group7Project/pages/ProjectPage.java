@@ -55,7 +55,7 @@ public class ProjectPage {
         //BrowserUtils.waitForStaleElement(?);
         return uniqueProjectList.contains(exampleProject);
     }
-}
+
 
    /* public void searchForProject (String project){
 
