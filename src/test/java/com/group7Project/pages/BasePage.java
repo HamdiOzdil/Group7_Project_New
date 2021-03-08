@@ -116,13 +116,8 @@ public abstract class BasePage {
     @FindBy(xpath = "//a[text()='Preferences']")
     public WebElement preferences;
 
-    @FindBy(xpath = "//span[@title='Edit']")
-    public WebElement imageControl;
-
-    @FindBy(xpath = "//span[text()='Save']")
-    public WebElement saveButton;
-
-
+    @FindBy(xpath = "//img[@class='img-circle oe_topbar_avatar']")
+    public WebElement avatarImage;
 
     public void verifyModuleNamesRelatedToUsers(List<String> modulesList){
 
@@ -144,7 +139,7 @@ public abstract class BasePage {
 
 
 
-        public void navigateToModule(String module) {
+    public void navigateToModule(String module) {
         // String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
         System.out.println("Hello2");
         String moduleLocator = "(//span[contains(text(),'"+module+"')])[1]";
@@ -178,7 +173,6 @@ public abstract class BasePage {
 
     public void verifyModuleNamesBasedOnUserTypes(List<String> modulesList){
         clickOnTheMoreButton();
-
         for (String each : getExpectedModuleList(modulesList)){
             String moduleNameLocator = "//span[contains(text(),'" + each + "')]";
             Assert.assertTrue(Driver.get().findElement(By.xpath(moduleNameLocator)).isDisplayed());
@@ -200,4 +194,5 @@ public abstract class BasePage {
             e.printStackTrace();
         }
     }
+
 }
