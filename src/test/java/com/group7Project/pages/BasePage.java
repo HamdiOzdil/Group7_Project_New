@@ -189,19 +189,6 @@ public abstract class BasePage {
         }
     }
 
-    public void navigateToModule(String module) {
-        // String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
-        System.out.println("Hello2");
-        String moduleLocator = "(//span[contains(text(),'"+module+"')])[1]";
-        System.out.println("Hello3");
 
-        try {
-            BrowserUtils.waitForPresenceOfElement(By.xpath(moduleLocator), 5);
-            BrowserUtils.waitForVisibility(By.xpath(moduleLocator), 5);
-            BrowserUtils.scrollToElement(Driver.get().findElement(By.xpath(moduleLocator)));
-            Driver.get().findElement(By.xpath(moduleLocator)).click();
-        } catch (Exception e) {
-            BrowserUtils.clickWithTimeOut(Driver.get().findElement(By.xpath(moduleLocator)),  5);
-        }
-    }
+
 }
