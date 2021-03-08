@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public class ProjectPage {
+public class ProjectPage extends BasePage{
 
     public ProjectPage(){
         PageFactory.initElements(Driver.get(),this);
@@ -55,7 +55,7 @@ public class ProjectPage {
         //BrowserUtils.waitForStaleElement(?);
         return uniqueProjectList.contains(exampleProject);
     }
-}
+
 
    /* public void searchForProject (String project){
 
