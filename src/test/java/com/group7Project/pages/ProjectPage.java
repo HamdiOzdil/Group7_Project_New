@@ -29,14 +29,14 @@ public class ProjectPage {
         searchBTN.sendKeys(project);
     }*/
 
-    public List<String> projectNamesListOnTheDashboard () {
-        BrowserUtils.waitForPageToLoad(5);
-        List<String> expectedProjectList = new ArrayList<>();
-        for (WebElement each : projectNamesListOnTheDashboard) {
-            System.out.print( expectedProjectList.add(each));
-        }
-        return expectedProjectList;
-
+//    public List<String> projectNamesListOnTheDashboard () {
+//        BrowserUtils.waitForPageToLoad(5);
+//        List<String> expectedProjectList = new ArrayList<>();
+//        for (WebElement each : projectNamesListOnTheDashboard) {
+//            System.out.print( expectedProjectList.add(each));
+//        }
+//        return expectedProjectList;
+//
 
 
    /* public void verifyModuleNamesRelatedToUsers(List<String> projectList){
@@ -47,7 +47,7 @@ public class ProjectPage {
             String moduleNameLocator = "//span[contains(text(),'" + each + "')]";
             Assert.assertTrue(Driver.get().findElement(By.xpath(moduleNameLocator)).isDisplayed());*/
         }
-    }
+//    }
 
 
 

@@ -144,7 +144,7 @@ public abstract class BasePage {
 
 
 
-    public void navigateToModule(String module) {
+        public void navigateToModule(String module) {
         // String tabLocator = "//span[normalize-space()='" + tab + "' and contains(@class, 'title title-level-1')]";
         System.out.println("Hello2");
         String moduleLocator = "(//span[contains(text(),'"+module+"')])[1]";
@@ -178,6 +178,7 @@ public abstract class BasePage {
 
     public void verifyModuleNamesBasedOnUserTypes(List<String> modulesList){
         clickOnTheMoreButton();
+
         for (String each : getExpectedModuleList(modulesList)){
             String moduleNameLocator = "//span[contains(text(),'" + each + "')]";
             Assert.assertTrue(Driver.get().findElement(By.xpath(moduleNameLocator)).isDisplayed());

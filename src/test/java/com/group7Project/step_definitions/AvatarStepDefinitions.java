@@ -22,6 +22,11 @@ public class AvatarStepDefinitions {
         dashboard.verifyAvatarDisplay();
     }
 
+    @Given("take the screenshot of {string} avatar")
+    public void take_the_screenshot_of_avatar(String string) {
+
+    }
+
     @When("{string} navigates to preferences page")
     public void navigates_to_preferences_page(String usertype) throws InterruptedException {
      preferencesPage.navigateToPreferences(usertype);
@@ -35,15 +40,30 @@ public class AvatarStepDefinitions {
 
      dashboard.imageControl.click();
      BrowserUtils.waitForVisibility(dashboard.imageControl,3);
-     preferencesPage.uploadFile(fullPath);
+     preferencesPage.uploadFile();
 
      dashboard.saveButton.click();
 
     }
 
-    @Then("Verify that picture is changed")
-    public void verify_that_picture_is_changed() {
+    @When("change the avatar with new one {string}")
+    public void change_the_avatar_with_new_one(String string) {
 
     }
+
+    @Then("verify the avatar has changed")
+    public void verify_the_avatar_has_changed() {
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 }
