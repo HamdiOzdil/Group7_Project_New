@@ -22,7 +22,7 @@ public class ModuleLinksStepDefs {
         if(userType.equals("posmanager")){
             username = ConfigurationReader.get("posmanager_username");
             password = ConfigurationReader.get("posmanager_password");
-        }else if(userType.equals("sales manager")){
+        }else if(userType.equals("salesmanager")){
             username = ConfigurationReader.get("sales_manager_username");
             password = ConfigurationReader.get("sales_manager_password");
         }else if(userType.equals("store manager")){
