@@ -116,6 +116,9 @@ public abstract class BasePage {
     @FindBy(xpath = "//a[text()='Preferences']")
     public WebElement preferences;
 
+    @FindBy(xpath = "//img[@class='img-circle oe_topbar_avatar']")
+    public WebElement avatarImage;
+
     public void verifyModuleNamesRelatedToUsers(List<String> modulesList){
 
         BrowserUtils.waitForPageToLoad(5);
