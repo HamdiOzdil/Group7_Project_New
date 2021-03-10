@@ -24,6 +24,8 @@ public class ProjectPage {
     @FindBy(xpath = "//div[@class='o_primary']/span[1]")
     public List<WebElement> projectNamesListOnTheDashboard;
 
+    @FindBy(className = "o_pager_limit")
+    public WebElement numberOfProjects;
 
    /* public void searchForProject (String project){
 
