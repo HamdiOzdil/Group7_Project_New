@@ -19,7 +19,7 @@ Hooks {
         System.out.println("\tthis is coming from BEFORE");
         Driver.get().manage().window().maximize();
         Driver.get().manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
-        Driver.get().get(ConfigurationReader.get("login_url"));
+        Driver.get().get(ConfigurationReader.get("login_url_motor"));
     }
 
     @After
